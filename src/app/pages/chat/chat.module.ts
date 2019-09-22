@@ -5,6 +5,7 @@ import { ChatWindowComponent } from './chat-window/chat-window.component';
 import { NbChatModule, NbCardModule } from '@nebular/theme';
 import { ChatSelectorComponent } from './chat-selector/chat-selector.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ChatService } from 'src/app/services/chat.service';
 
 
 @NgModule({
@@ -15,5 +16,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FlexLayoutModule,
     NbCardModule
   ],
+  providers: [ChatService]
 })
 export class ChatModule { }
