@@ -1,8 +1,9 @@
 <div class="wide-100" fxLayout = "row">
     <div fxFlex="20">
-        <app-chat-selector></app-chat-selector>
+        <app-chat-selector (openSearch) = "changeView('search')"></app-chat-selector>
     </div>
     <div fxFlex="80">
-        <app-chat-window></app-chat-window>
+        <app-chat-window *ngIf = "view === 'chat'"></app-chat-window>
+        <app-search *ngIf = "view === 'search'" (changeView) = "changeView('chat')"></app-search>
     </div>
 </div>

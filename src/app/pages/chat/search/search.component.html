@@ -1,0 +1,13 @@
+<nb-card>
+    <nb-card-header><input type="text" nbInput fullWidth shape="semi-round" (input)="searchInput($event.target.value)"></nb-card-header>
+    <nb-card-body>
+        <div fxFlexLayout = "row" *ngFor = "let user of users" (click) = "userSelected(user)">
+            <div fxFlex = "5">
+                <img width="40px" [src] = "user.pictureUrl">
+            </div>
+            <div fxFlex = "45">
+                {{user.fullName}}
+            </div>
+        </div>
+    </nb-card-body>
+</nb-card>

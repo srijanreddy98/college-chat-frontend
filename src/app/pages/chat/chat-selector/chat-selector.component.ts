@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ChatService } from 'src/app/services/chat.service';
 
 @Component({
   selector: 'app-chat-selector',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chat-selector.component.scss']
 })
 export class ChatSelectorComponent implements OnInit {
-
-  constructor() { }
+  @Output() openSearch = new EventEmitter();
+  constructor(private chatService: ChatService) { }
 
   ngOnInit() {
   }
 
+  setChat() {
+    // this.chatService.setSelectedChat(5);
+  }
+
+  openSearchFn() {
+    this.openSearch.emit();
+  }
 }

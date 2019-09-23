@@ -1,4 +1,4 @@
-<div style="padding:0% 2%; height: 70vh">
+<div style="padding:0% 2%; height: 70vh" (click) = "setChat()">
   <nb-card style="height: 100%">
     <nb-card-body style="height: 100%">
       <div style="height: 100%" fxLayout = "column" fxLayoutAlign = "start center">
@@ -7,7 +7,7 @@
             Channels
         </div>
         <div fxFlex = "45" fxLayout = "column" fxLayoutAlign = "start center">
-            Friends
+            <span (click) = "openSearchFn()"> Firends + </span>
         </div>
       </div>
     </nb-card-body>

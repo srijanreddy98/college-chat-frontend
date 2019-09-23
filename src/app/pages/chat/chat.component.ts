@@ -9,12 +9,13 @@ import { ChatService } from 'src/app/services/chat.service';
 export class ChatComponent implements OnInit {
 
   constructor(private chatService: ChatService) { }
-
+  view: 'chat' | 'search' = 'chat';
   ngOnInit() {
-    this.chatService.getClientDetails().subscribe(
-      res => console.log(res),
-      err => console.log(err)
-    );
+    this.chatService.getUser();
+  }
+
+  changeView(view: 'chat' | 'search') {
+    this.view = view;
   }
 
 }
