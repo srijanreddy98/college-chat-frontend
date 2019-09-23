@@ -15,17 +15,19 @@ export class SearchComponent implements OnInit {
   search = new Subject();
   ngOnInit() {
     this.search.pipe(debounceTime(200)).subscribe(
-      userStr => this.chatService.searchForUser(userStr).subscribe(
-        res => this.users = res,
-        err => console.log(err)
-      )
+      userStr => {
+        if (userStr === '') {
+          this.users = [];
+          return;
+        }
+        this.chatService.searchForUser(userStr).subscribe(
+          res => this.users = res,
+          err => console.log(err)
+        );
+      }
     );
   }
   searchInput(e) {
-    if (e === '') {
-      this.users = [];
-      return;
-    }
     this.search.next(e);
   }
 
